@@ -64,7 +64,7 @@ void menuLogin()
 
 void registerUser()
 {
-    if (jumlahUser == 5)
+    if (jumlahUser == 10)
     {
         cout << "User penuh!\n";
         return;
