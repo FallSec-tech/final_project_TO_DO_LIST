@@ -6,25 +6,29 @@
 #endif
 using namespace std;
 
+// Array sederhana untuk menyimpan akun pengguna (maks 10 akun).
 string username[10];
 string password[10];
 int jumlahUser = 0;
 
+// Array penyimpanan data tugas (maks 10 tugas) untuk nama, status, kategori, dan prioritas.
 string tugas[10];
 string statusTugas[10];
 string kategori[10];
 int prioritas[10];
 int jumlahTugas = 0;
 
+// Membersihkan layar terminal untuk pengalaman CLI yang lebih rapi.
 void clearScreen()
 {
 #ifdef _WIN32
     system("cls");
 #else
-    cout << "clear";
+    system("clear");
 #endif
 }
 
+// Menahan eksekusi sampai user menekan enter (meniru perilaku system("pause") di Windows).
 void pauseProgram()
 {
 #ifdef _WIN32
@@ -36,6 +40,7 @@ void pauseProgram()
 #endif
 }
 
+// ASCII art logo untuk aplikasi To-Do List.
 void judulTodo()
 {
     cout << "████████╗ ██████╗     ██████╗  ██████╗     ██╗     ██╗███████╗████████╗\n";
@@ -46,6 +51,7 @@ void judulTodo()
     cout << "   ╚═╝    ╚═════╝     ╚═════╝  ╚═════╝     ╚══════╝╚═╝╚══════╝   ╚═╝   \n";
 }
 
+// Mencetak judul besar program dan memanggil fungsi ASCII art.
 void judul()
 {
     cout << "FINAL PROJECT C++\n\n";
@@ -54,6 +60,7 @@ void judul()
     cout << "======================================================================\n\n";
 }
 
+// Menu awal untuk register, login, atau keluar dari program.
 void menuLogin()
 {
     cout << "\n1. Register\n";
@@ -62,6 +69,7 @@ void menuLogin()
     cout << "Pilih menu: ";
 }
 
+// Menambahkan akun baru selama kapasitas masih tersedia.
 void registerUser()
 {
     if (jumlahUser == 10)
@@ -78,8 +86,12 @@ void registerUser()
 
     jumlahUser++;
     cout << "\nRegister berhasil! Silakan login.\n";
+    pauseProgram();
+    clearScreen();
+    
 }
 
+// Memverifikasi username dan password yang dimasukkan user.
 bool loginUser()
 {
     string user, pass;
@@ -102,6 +114,7 @@ bool loginUser()
     return false;
 }
 
+// Menu setelah login yang berisi semua fitur pengelolaan tugas.
 void menuTodo()
 {
     cout << "\n===== TO DO LIST =====\n";
@@ -116,6 +129,7 @@ void menuTodo()
     cout << "Pilih menu: ";
 }
 
+// Membuat tugas baru lengkap dengan kategori, prioritas, dan status awal.
 void tambahTugas()
 {
     if (jumlahTugas == 10)
@@ -197,6 +211,7 @@ pilih_prioritas:
     cout << "\nTugas berhasil ditambahkan!\n";
 }
 
+// Menampilkan semua tugas beserta status, kategori, dan prioritasnya.
 void lihatTugas()
 {
     if (jumlahTugas == 0)
@@ -215,6 +230,7 @@ void lihatTugas()
     }
 }
 
+// Menampilkan hanya tugas yang belum selesai untuk fokus pada pekerjaan tersisa.
 void lihatTugasBelumSelesai()
 {
     bool ada = false;
@@ -235,6 +251,7 @@ void lihatTugasBelumSelesai()
     }
 }
 
+// Menampilkan daftar tugas yang sudah selesai.
 void lihatTugasSelesai()
 {
     bool ada = false;
@@ -255,6 +272,7 @@ void lihatTugasSelesai()
     }
 }
 
+// Mengubah status sebuah tugas menjadi selesai berdasarkan nomor pilihan user.
 void tandaiSelesai()
 {
     if (jumlahTugas == 0)
@@ -279,6 +297,7 @@ void tandaiSelesai()
     }
 }
 
+// Menghapus tugas yang dipilih user dan menggeser data array agar rapat kembali.
 void hapusTugas()
 {
     if (jumlahTugas == 0)
@@ -320,6 +339,7 @@ void hapusTugas()
     }
 }
 
+// Mengedit nama, kategori, atau prioritas tugas yang sudah ada.
 void editTugas()
 {
     if (jumlahTugas == 0)
@@ -444,6 +464,7 @@ pilih_nomor:
     cout << "\nData tugas berhasil diperbarui!\n";
 }
 
+// Entry point program: menangani alur login dan mengarahkan ke menu To-Do.
 int main()
 {
     int pilih;
