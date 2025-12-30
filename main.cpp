@@ -21,7 +21,7 @@ void clearScreen()
 #ifdef _WIN32
     system("cls");
 #else
-    system("clear");
+    cout << "clear";
 #endif
 }
 
