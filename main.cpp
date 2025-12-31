@@ -76,7 +76,7 @@ void registerUser()
     {
         cout << "User penuh!\n";
         return;
-    }
+    } 
 
     cout << "\n=== REGISTER ===\n";
     cout << "Username: ";
@@ -483,6 +483,7 @@ int main()
         if (pilih == 1)
         {
             registerUser();
+            judul();
         }
         else if (pilih == 2)
         {
