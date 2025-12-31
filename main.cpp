@@ -63,10 +63,10 @@ void judul()
 // Menu awal untuk register, login, atau keluar dari program.
 void menuLogin()
 {
-    cout << "\n1. Register\n";
-    cout << "2. Login\n";
-    cout << "0. Keluar\n";
-    cout << "Pilih menu: ";
+    cout << "\n1. Register";
+    cout << "\t\t2. Login";
+    cout << "\t\t0. Keluar\n";
+    cout << "\n\t\tPilih menu: ";
 }
 
 // Menambahkan akun baru selama kapasitas masih tersedia.
