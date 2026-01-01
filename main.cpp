@@ -72,7 +72,7 @@ void menuLogin()
 // Menambahkan akun baru selama kapasitas masih tersedia.
 void registerUser()
 {
-    if (jumlahUser == 10)
+    if (jumlahUser == 5)
     {
         cout << "User penuh!\n";
         return;
@@ -132,7 +132,7 @@ void menuTodo()
 // Membuat tugas baru lengkap dengan kategori, prioritas, dan status awal.
 void tambahTugas()
 {
-    if (jumlahTugas == 10)
+    if (jumlahTugas == 5)
     {
         cout << "Tugas penuh!\n";
         return;
