@@ -430,7 +430,7 @@ pilih_nomor:
     char ubahPrioritas;
     cin >> ubahPrioritas;
 
-    if (ubahPrioritas == 'y' || ubahPrioritas == 'Y')
+    if (ubahPrioritas == 'y' || ubahPrioritas == 'Y') 
     {
 
     pilih_prioritas_edit:
@@ -480,7 +480,15 @@ int main()
     {
         menuLogin();
         cin >> pilih;
-
+        if (cin.fail()) {
+            cin.clear(); // reset error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // buang input salah
+            cout << "Input harus angka! Silakan coba lagi.\n";
+            pauseProgram();
+            clearScreen();
+            judul();
+            continue; // balik ke awal loop do-while
+}
         clearScreen();
 
         if (pilih == 1)
@@ -501,6 +509,14 @@ int main()
                     clearScreen();
                     menuTodo();
                     cin >> menuTodoPilihan;
+                    if (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Input harus angka! Silakan coba lagi.\n";
+                        pauseProgram();
+                        clearScreen();
+                        continue; // balik ke loop menu To-Do
+}
                     clearScreen();
 
                     if (menuTodoPilihan == 1)
